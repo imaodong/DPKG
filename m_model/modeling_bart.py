@@ -151,7 +151,6 @@ class Seq2SeqModelOutput(ModelOutput):
     encoder_attentions: Optional[Tuple[torch.FloatTensor, ...]] = None
 
 
-
 @dataclass
 class BaseModelOutput(ModelOutput):
     """
@@ -1494,12 +1493,6 @@ class BartDecoder(BartPreTrainedModel):
 
         if inputs_embeds is None:
             inputs_embeds = self.embed_tokens(input) * self.embed_scale
-
-        """
-        如果是phrase_decoder的话, additional_feature1 = context_states [bsz, con_len, embed_dim]
-        context_mask [bsz, con_len]; additional_feature2 = answer_states [bsz, ans_len, embed_dim]
-        answer_mask [bsz, ans_len] .
-        """
 
         attention_mask = _prepare_4d_causal_attention_mask(
             attention_mask, input_shape, inputs_embeds, past_key_values_length
