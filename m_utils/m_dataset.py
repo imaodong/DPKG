@@ -8,7 +8,7 @@ from dataclasses import dataclass
 from typing import List
 from torch.utils.data import Dataset
 from tqdm import tqdm
-from m_utils.m_util import CLS, SEP, POS, NEG
+from m_utils.m_util import CLS, SEP, QES, DOC
 
 
 @dataclass(frozen=True)
@@ -158,11 +158,11 @@ class My_dataset():
         else:
             keyphrase_input = []
             for pp in p_phrase:  
-                keyphrase_input += [POS]
+                keyphrase_input += [QES]
                 keyphrase_input += [pp]
 
             for np in n_phrase:
-                keyphrase_input += [NEG]
+                keyphrase_input += [DOC]
                 keyphrase_input += [np]
                 
         keyphrase_string = "".join(keyphrase_input) 
