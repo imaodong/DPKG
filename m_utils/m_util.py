@@ -5,8 +5,8 @@ PAD = "<pad>" # 1
 UNK = "<unk>" # 3
 CLS = "<s>" # 0
 SEP = "</s>" # 2
-POS = "<qes>" # 50265
-NEG = "<doc>" # 50266
+QES = "<qes>" # 50265
+DOC = "<doc>" # 50266
 KEYWORD = "<key>"
 
 SPECIAL_TOKENS_MAP = {"additional_special_tokens": [POS, NEG]}
