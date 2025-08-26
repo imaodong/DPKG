@@ -9,7 +9,7 @@ QES = "<qes>" # 50265
 DOC = "<doc>" # 50266
 KEYWORD = "<key>"
 
-SPECIAL_TOKENS_MAP = {"additional_special_tokens": [POS, NEG]}
+SPECIAL_TOKENS_MAP = {"additional_special_tokens": [QES, DOC]}
 
 
 def get_tokenizer(config_dir):
