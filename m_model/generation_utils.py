@@ -21,7 +21,7 @@ from transformers import (
 )
 from m_model.beam_constraints import PhrasalConstraint
 from m_model.beam_search import BeamSearchScorer, ConstrainedBeamSearchScorer
-from m_utils.m_util import CLS, SEP, POS, NEG
+from m_utils.m_util import CLS, SEP, QES, DOC
 
 
 def _get_logits_processor(
@@ -120,7 +120,7 @@ def greedy_decoding(
         
         context_ids, context_mask = inputs['batch_context']
         answer_ids, answer_mask = inputs['batch_answer']
-        dec_ids = torch.tensor([tokenizer.bos_token_id, tokenizer.convert_tokens_to_ids(POS)]).unsqueeze(0).repeat(batch_size, 1).contiguous().to(device)
+        dec_ids = torch.tensor([tokenizer.bos_token_id, tokenizer.convert_tokens_to_ids(QES)]).unsqueeze(0).repeat(batch_size, 1).contiguous().to(device)
         while True:
             model_out = model(
                 input_ids=input_ids, attention_mask=input_masks, context_ids=context_ids, context_mask=context_mask,
@@ -295,7 +295,7 @@ def model_decode_beam(model, inputs, tokenizer, args, num_beams=8,
         )
         batch_size = bsz_ctx.size(0)
         device = bsz_ctx.device
-        dec_ids = torch.tensor([tokenizer.bos_token_id, tokenizer.convert_tokens_to_ids(POS)]).unsqueeze(0).repeat(batch_size, 1).contiguous().to(device)
+        dec_ids = torch.tensor([tokenizer.bos_token_id, tokenizer.convert_tokens_to_ids(QES)]).unsqueeze(0).repeat(batch_size, 1).contiguous().to(device)
         inputs['batch_keyphrase'][0] = dec_ids
         model_inputs = _expand_inputs_for_keyphrase(inputs, expand_size=num_beams)
         keyphrase_ids, _ = model_inputs['batch_keyphrase']
