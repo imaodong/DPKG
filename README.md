@@ -1,7 +1,7 @@
 # DPKG
 Our work, Multi-Hop Question Generation via Dual-Perspective Keyword Guidance, has been accepted to the Findings of ACL 2025.
 
-Thank you for your interest in our work. If you have any questions after reading our paper, please feel free to contact me at dong_i@163.com.
+Thank you for your interest in our work. If you have any questions after reading our paper, please feel free to contact me at dong_i@163.com or 20254027002@stu.suda.edu.cn
 
 
 If you use our data or code in your work, please kindly cite our work as:
